@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Licensed to the Apache Software Foundation (ASF) under one or more
+contributor license agreements. See the NOTICE file distributed with
+this work for additional information regarding copyright ownership.
+The ASF licenses this file to You under the Apache License, Version 2.0
+(the "License"); you may not use this file except in compliance with
+the License. You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd ">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>org.duguo.xdir</groupId>
+    <artifactId>xdir</artifactId>
+    <version>0.9.0</version>
+    <packaging>pom</packaging>
+    <name>XDir Platform (Parent)</name>
+    <!-- TODO: add project description tag -->
+
+    <!-- ======================================= -->
+    <!-- SUB MODULES                             -->
+    <!-- ======================================= -->
+    <modules>
+        <module>spi</module>
+        <module>util</module>
+        <module>core</module>
+        <module>osgi</module>
+        <module>service</module>
+        <module>dist</module>
+        <module>tests</module>
+    </modules>
+
+    <!-- ======================================= -->
+    <!-- GLOBAL PROPERTIES                       -->
+    <!-- ======================================= -->
+    <properties>
+        <lib.servlet.api.version>2.5.0</lib.servlet.api.version>
+        <lib.osgi.core.version>4.2.0</lib.osgi.core.version>
+        <lib.osgi.compendium.version>4.2.0</lib.osgi.compendium.version>
+        <lib.springframework.version>3.0.6.RELEASE</lib.springframework.version>
+        <lib.gemini.blueprint.version>1.0.0.RELEASE</lib.gemini.blueprint.version>
+        <!--<lib.felix.version>3.2.2</lib.felix.version>-->
+        <lib.felix.version>2.0.4</lib.felix.version>
+        <lib.junit.version>4.9</lib.junit.version>
+        <lib.slf4j.version>1.6.2</lib.slf4j.version>
+        <lib.log4j.version>1.2.16</lib.log4j.version>
+        <lib.http.jetty.version>7.1.4.v20100610</lib.http.jetty.version>
+        <lib.jcr.api.version>2.0</lib.jcr.api.version>
+        <lib.jcr.jackrabbit.version>2.1.0</lib.jcr.jackrabbit.version>
+        <lib.template.freemarker.version>2.3.15</lib.template.freemarker.version>
+
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <skipTests>true</skipTests>
+    </properties>
+
+    <!-- ======================================= -->
+    <!-- BUILD CONFIGURATIONS                    -->
+    <!-- ======================================= -->
+    <build>
+        <defaultGoal>install</defaultGoal>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.felix</groupId>
+                    <artifactId>maven-bundle-plugin</artifactId>
+                    <version>2.3.5</version>
+                    <extensions>true</extensions>
+                    <configuration>
+                        <instructions>
+                            <Bundle-DocURL>http://xdir.duguo.org/</Bundle-DocURL>
+                            <Bundle-Vendor>XDir Platform</Bundle-Vendor>
+                            <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
+                        </instructions>
+                    </configuration>
+                </plugin>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-invoker-plugin</artifactId>
+                    <version>1.5</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+    <!-- ======================================= -->
+    <!-- REPOSITORIES CONFIGURATIONS             -->
+    <!--   Move out repository definition to     -->
+    <!--   settings.xml in release branch        -->
+    <!-- ======================================= -->
+    <repositories>
+        <repository>
+            <id>central</id>
+            <name>Maven Default Release Repository</name>
+            <url>http://repo1.maven.org/maven2/</url>
+        </repository>
+        <repository>
+            <id>springsource-external-repository</id>
+            <name>SpringSource External Lib Release Repository</name>
+            <url>http://repository.springsource.com/maven/bundles/external</url>
+        </repository>
+        <repository>
+            <id>zodiac-repository</id>
+            <name>Zodiac Release Repository</name>
+            <url>http://zodiac.springsource.com/maven/bundles/release</url>
+        </repository>
+        <repository>
+            <id>com.springsource.repository.bundles.release</id>
+            <name>SpringSource Enterprise Bundle Repository - SpringSource Bundle Releases</name>
+            <url>http://repository.springsource.com/maven/bundles/release</url>
+        </repository>
+        <repository>
+            <id>com.springsource.repository.bundles.external</id>
+            <name>SpringSource Enterprise Bundle Repository - External Bundle Releases</name>
+            <url>http://repository.springsource.com/maven/bundles/external</url>
+        </repository>
+        <repository>
+            <id>xdir-repository</id>
+            <name>mrduguo's Maven Release Repository</name>
+            <url>http://mrduguo.github.com/maven/repos/release</url>
+        </repository>
+    </repositories>
+
+
+    <!-- ======================================= -->
+    <!-- SCM / DIST CONFIGURATION                -->
+    <!-- ======================================= -->
+    <scm>
+        <connection>scm:git:git@github.com:mrduguo/xdir.git</connection>
+        <url>scm:git:git@github.com:mrduguo/xdir.git</url>
+        <developerConnection>scm:git:git@github.com:mrduguo/xdir.git</developerConnection>
+    </scm>
+    <distributionManagement>
+        <repository>
+            <id>github</id>
+            <url>file:///Users/gdu/projects/github/mrduguo/mrduguo.github.com/maven/repos/release</url>
+        </repository>
+    </distributionManagement>
+
+</project>

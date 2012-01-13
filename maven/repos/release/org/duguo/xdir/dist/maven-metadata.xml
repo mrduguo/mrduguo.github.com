@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <plugins>
+    <plugin>
+      <name>XDir Platform Distribution (Maven Plugin)</name>
+      <prefix>xdir-dist</prefix>
+      <artifactId>xdir-dist-plugin</artifactId>
+    </plugin>
+  </plugins>
+</metadata>
