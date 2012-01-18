@@ -3,10 +3,11 @@
   <groupId>org.duguo.xdir.osgi</groupId>
   <artifactId>xdir-osgi-extender-group</artifactId>
   <versioning>
-    <release>0.9.0</release>
+    <release>0.9.1</release>
     <versions>
       <version>0.9.0</version>
+      <version>0.9.1</version>
     </versions>
-    <lastUpdated>20120113235738</lastUpdated>
+    <lastUpdated>20120118231533</lastUpdated>
   </versioning>
 </metadata>

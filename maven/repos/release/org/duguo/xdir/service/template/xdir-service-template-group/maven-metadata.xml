@@ -3,10 +3,11 @@
   <groupId>org.duguo.xdir.service.template</groupId>
   <artifactId>xdir-service-template-group</artifactId>
   <versioning>
-    <release>0.9.0</release>
+    <release>0.9.1</release>
     <versions>
       <version>0.9.0</version>
+      <version>0.9.1</version>
     </versions>
-    <lastUpdated>20120113235743</lastUpdated>
+    <lastUpdated>20120118231539</lastUpdated>
   </versioning>
 </metadata>

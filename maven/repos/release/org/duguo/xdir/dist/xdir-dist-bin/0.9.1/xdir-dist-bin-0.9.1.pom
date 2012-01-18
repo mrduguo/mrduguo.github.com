@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!--
+  Licensed to the Apache Software Foundation (ASF) under one or more contributor license agreements. See the NOTICE file distributed with
+  this work for additional information regarding copyright ownership. The ASF licenses this file to you under the Apache License, Version
+  2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0 Unless required by applicable law or agreed to in writing, software distributed under the
+  License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for
+  the specific language governing permissions and limitations under the License.
+-->
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>org.duguo.xdir.dist</groupId>
+        <artifactId>xdir-dist</artifactId>
+        <version>0.9.1</version>
+    </parent>
+    <groupId>org.duguo.xdir.dist</groupId>
+    <artifactId>xdir-dist-bin</artifactId>
+    <version>0.9.1</version>
+    <packaging>pom</packaging>
+    <name>XDir Platform Distribution (Server Binary)</name>
+
+    <!-- ======================================= -->
+    <!-- BUILD CONFIGURATIONS                    -->
+    <!-- ======================================= -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.duguo.xdir.dist</groupId>
+                <artifactId>xdir-dist-plugin</artifactId>
+                <version>${project.version}</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>assembly</goal>
+                        </goals>
+                        <configuration>
+                            <fileSets>
+                                <fileSet>
+                                    <outputDirectory>boot</outputDirectory>
+                                    <dependencies>
+                                        <dependency>
+                                            <groupId>org.duguo.xdir.osgi</groupId>
+                                            <artifactId>xdir-osgi-boot-group</artifactId>
+                                            <version>${project.version}</version>
+                                            <type>pom</type>
+                                        </dependency>
+                                    </dependencies>
+                                </fileSet>
+                                <fileSet>
+                                    <outputDirectory>bundles/installable</outputDirectory>
+                                    <dependencies>
+                                        <dependency>
+                                            <groupId>org.apache.felix</groupId>
+                                            <artifactId>org.apache.felix.shell</artifactId>
+                                            <version>1.4.1</version>
+                                        </dependency>
+                                        <dependency>
+                                            <groupId>org.apache.felix</groupId>
+                                            <artifactId>org.apache.felix.shell.tui</artifactId>
+                                            <version>1.4.1</version>
+                                        </dependency>
+                                    </dependencies>
+                                </fileSet>
+                                <fileSet>
+                                    <outputDirectory>bundles/system/extender</outputDirectory>
+                                    <dependencies>
+                                        <dependency>
+                                            <groupId>org.duguo.xdir.osgi</groupId>
+                                            <artifactId>xdir-osgi-extender-group</artifactId>
+                                            <version>${project.version}</version>
+                                            <type>pom</type>
+                                        </dependency>
+                                    </dependencies>
+                                </fileSet>
+                                <fileSet>
+                                    <outputDirectory>bundles/system/xdir/common</outputDirectory>
+                                    <dependencies>
+                                        <dependency>
+                                            <groupId>org.duguo.xdir</groupId>
+                                            <artifactId>xdir-spi</artifactId>
+                                            <version>${project.version}</version>
+                                        </dependency>
+                                        <dependency>
+                                            <groupId>org.duguo.xdir</groupId>
+                                            <artifactId>xdir-util</artifactId>
+                                            <version>${project.version}</version>
+                                        </dependency>
+                                        <dependency>
+                                            <groupId>commons-lang</groupId>
+                                            <artifactId>commons-lang</artifactId>
+                                            <version>2.6</version>
+                                        </dependency>
+                                        <dependency>
+                                            <groupId>commons-io</groupId>
+                                            <artifactId>commons-io</artifactId>
+                                            <version>1.4</version>
+                                        </dependency>
+                                        <dependency>
+                                            <groupId>commons-codec</groupId>
+                                            <artifactId>commons-codec</artifactId>
+                                            <version>1.5</version>
+                                        </dependency>
+                                        <dependency>
+                                            <groupId>org.duguo.xdir.service.db</groupId>
+                                            <artifactId>xdir-service-db-group</artifactId>
+                                            <version>${project.version}</version>
+                                            <type>pom</type>
+                                        </dependency>
+                                        <dependency>
+                                            <groupId>org.duguo.xdir.service.http</groupId>
+                                            <artifactId>xdir-service-http-group</artifactId>
+                                            <version>${project.version}</version>
+                                            <type>pom</type>
+                                        </dependency>
+                                        <dependency>
+                                            <groupId>org.duguo.xdir.service.template</groupId>
+                                            <artifactId>xdir-service-template-group</artifactId>
+                                            <version>${project.version}</version>
+                                            <type>pom</type>
+                                        </dependency>
+                                        <dependency>
+                                            <groupId>org.duguo.xdir.service.jcr</groupId>
+                                            <artifactId>xdir-service-jcr-group</artifactId>
+                                            <version>${project.version}</version>
+                                            <type>pom</type>
+                                        </dependency>
+                                    </dependencies>
+                                </fileSet>
+                                <fileSet>
+                                    <outputDirectory>bundles/system/xdir/platform</outputDirectory>
+                                    <dependencies>
+                                        <dependency>
+                                            <groupId>org.duguo.xdir</groupId>
+                                            <artifactId>xdir-core</artifactId>
+                                            <version>${project.version}</version>
+                                        </dependency>
+                                    </dependencies>
+                                </fileSet>
+                            </fileSets>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
